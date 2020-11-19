@@ -20,50 +20,50 @@ import org.threeten.bp.ZonedDateTime;
 public final class News {
 
     /**
-     *  Unique id
+     * Unique id
      */
-    private Long id;
+    private final Long id;
 
     /**
-     *  The Title
-     *  Restriction: not null, size > 2
+     * The Title
+     * Restriction: not null, size > 2
      */
-    private String title;
+    private final String title;
 
     /**
-     *  The Source
+     * The Source
      */
-    private String source;
+    private final String source;
 
     /**
-     *  The Author.
+     * The Author.
      */
-    private String author;
+    private final String author;
 
     /**
      * The URL.
      */
-    private String url;
+    private final String url;
 
     /**
      * The URL of image.
      */
-    private String urlImage;
+    private final String urlImage;
 
     /**
      * The Description.
      */
-    private String description;
+    private final String description;
 
     /**
      * The Content.
      */
-    private String content;
+    private final String content;
 
     /**
      * The Date of publish
      */
-    private ZonedDateTime publishedAt;
+    private final ZonedDateTime publishedAt;
 
     /**
      * The Constructor.
