@@ -79,6 +79,7 @@ public final class News {
      */
 
     public News(Long id, String title, String source, String author, String url, String urlImage, String description, String content, ZonedDateTime publishedAt) {
+        //TODO: add the validations
         this.id = id;
         this.title = title;
         this.source = source;
