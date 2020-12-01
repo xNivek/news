@@ -15,6 +15,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.threeten.bp.Clock;
+import org.threeten.bp.ZonedDateTime;
 
 import java.util.List;
 
@@ -68,11 +70,26 @@ public class TestContractsImpFaker {
         Assertions.assertEquals(3, contracts.retrieveNews(3).size(), "List != 3");
 
         // Size = 10
-        /*
-        TODO: error
+
         Assertions.assertTrue(contracts.retrieveNews(10).size() <= 10, "List != 10");
-         */
 
         log.debug("Done.");
+    }
+
+    /**
+     * The test of save news.
+     */
+    @Test
+    public void tesSaveNews(){
+        log.debug("Testing ..");
+
+        Contracts contracts = new ContractsImplFaker();
+
+        News news = new News((long) 1, "Title", "Source", "Author", "URL", "URL Image", "Description", "Content", ZonedDateTime.now(Clock.systemUTC()));
+
+        //Save the news
+        contracts.saveNews(news);
+
+        log.debug(".. Done");
     }
 }
