@@ -95,62 +95,62 @@ public final class News {
      * @return the id.
      */
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     /**
      * @return the title.
      */
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     /**
      * @return the source.
      */
     public String getSource() {
-        return source;
+        return this.source;
     }
 
     /**
      * @return the author.
      */
     public String getAuthor() {
-        return author;
+        return this.author;
     }
 
     /**
      * @return the url.
      */
     public String getUrl() {
-        return url;
+        return this.url;
     }
 
     /**
      * @return the url of image.
      */
     public String getUrlImage() {
-        return urlImage;
+        return this.urlImage;
     }
 
     /**
      * @return the description.
      */
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     /**
      * @return the content.
      */
     public String getContent() {
-        return content;
+        return this.content;
     }
 
     /**
      * @return the published at
      */
     public ZonedDateTime getPublishedAt() {
-        return publishedAt;
+        return this.publishedAt;
     }
 }
