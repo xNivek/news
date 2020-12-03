@@ -11,11 +11,13 @@
 package cl.ucn.disc.dsm.jramirez.news.services;
 
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.threeten.bp.Clock;
+import org.threeten.bp.ZoneId;
 import org.threeten.bp.ZonedDateTime;
 
 import java.util.List;
@@ -27,7 +29,6 @@ import cl.ucn.disc.dsm.jramirez.news.model.News;
  *
  *  @author Jean Ramirez-Castillo.
  */
-
 public class TestContractsImpFaker {
 
     /**
@@ -60,7 +61,7 @@ public class TestContractsImpFaker {
 
         // debug to log
         for(News n : news){
-            log.debug("News: {}", n);
+            log.debug("News: {}", ToStringBuilder.reflectionToString(n, ToStringStyle.MULTI_LINE_STYLE));
         }
 
         // size = 0
@@ -83,12 +84,33 @@ public class TestContractsImpFaker {
     public void tesSaveNews(){
         log.debug("Testing ..");
 
+        // The concrete implementation
         Contracts contracts = new ContractsImplFaker();
 
-        News news = new News((long) 1, "Title", "Source", "Author", "URL", "URL Image", "Description", "Content", ZonedDateTime.now(Clock.systemUTC()));
+        // Nullity
+        Assertions.assertThrows(IllegalArgumentException.class, () -> contracts.saveNews(null));
 
-        //Save the news
+        int size = contracts.retrieveNews(1000).size();
+        log.debug("Size: {}", size);
+
+        // Saving ok?
+        News news = new News(
+                "The Title",
+                "The Source",
+                "The Author",
+                null,
+                null,
+                "The Description",
+                "The Content",
+                ZonedDateTime.now(ZoneId.of("-3")));
         contracts.saveNews(news);
+
+        // One more time!
+        int newSize = contracts.retrieveNews(1000).size();
+        Assertions.assertEquals(size + 1, newSize, "Wrong size!");
+
+        // Save duplicated
+        Assertions.assertThrows(IllegalArgumentException.class, () -> contracts.saveNews(news));
 
         log.debug(".. Done");
     }
