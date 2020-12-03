@@ -10,7 +10,11 @@
 
 package cl.ucn.disc.dsm.jramirez.news.model;
 
+import net.openhft.hashing.LongHashFunction;
+
 import org.threeten.bp.ZonedDateTime;
+
+import cl.ucn.disc.dsm.jramirez.news.utils.Validation;
 
 /**
  *  The Domain model: News.
@@ -67,7 +71,6 @@ public final class News {
 
     /**
      * The Constructor.
-     * @param id
      * @param title
      * @param source
      * @param author
@@ -78,16 +81,37 @@ public final class News {
      * @param publishedAt
      */
 
-    public News(Long id, String title, String source, String author, String url, String urlImage, String description, String content, ZonedDateTime publishedAt) {
-        //TODO: add the validations
-        this.id = id;
+    public News(String title, String source, String author, String url, String urlImage, String description, String content, ZonedDateTime publishedAt) {
+
+        //validation title
+        Validation.minSize(title, 2,  "title");
         this.title = title;
+
+        // Validation source
+        Validation.minSize(source, 2, "source");
         this.source = source;
+
+        // Validation author
+        Validation.minSize(author, 3, "author");
         this.author = author;
+
+        // Hashing unique!
+        this.id = LongHashFunction.xx().hashChars(title + "|" + source + "|" + author);
+
+        // Can't be null
         this.url = url;
         this.urlImage = urlImage;
+
+        // Validation description
+        Validation.minSize(description, 10, "description");
         this.description = description;
+
+        // Validation content
+        Validation.notNull(content, "content");
         this.content = content;
+
+        // Validation publishedAt
+        Validation.notNull(publishedAt, "publishedAt");
         this.publishedAt = publishedAt;
     }
 
