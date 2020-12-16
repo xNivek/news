@@ -10,6 +10,8 @@
 
 package cl.ucn.disc.dsm.jramirez.news.model;
 
+import androidx.annotation.NonNull;
+
 import net.openhft.hashing.LongHashFunction;
 
 import org.threeten.bp.ZonedDateTime;
@@ -176,5 +178,12 @@ public final class News {
      */
     public ZonedDateTime getPublishedAt() {
         return this.publishedAt;
+    }
+
+    // TODO: Remove after testing
+    @NonNull
+    @Override
+    public String toString() {
+        return this.title;
     }
 }
