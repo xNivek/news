@@ -23,6 +23,11 @@ import org.threeten.bp.ZonedDateTime;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import cl.ucn.disc.dsm.jramirez.news.model.News;
 import cl.ucn.disc.dsm.jramirez.news.utils.Validation;
@@ -70,7 +75,7 @@ public class ContractsImplNewsApi implements Contracts {
         boolean needFix = false;
 
         // Fix the author null :C
-        if (article.getAuthor() == null) {
+        if (article.getAuthor() == null || article.getAuthor().length() == 0) {
             article.setAuthor("No author*");
             needFix = true;
         }
@@ -128,11 +133,32 @@ public class ContractsImplNewsApi implements Contracts {
                 //log.debug("Article: {}.", ToStringBuilder.reflectionToString(article,ToStringStyle.MULTI_LINE_STYLE));
                 news.add(toNews(article));
             }
-            return news;
+
+            // Filter and sort the News
+            return news.stream()
+                    // Remote the duplicates (by id)
+                    .filter(distintById(News::getId))
+                    // Sort the stream by publishedAt
+                    .sorted((k1, k2) -> k2.getPublishedAt().compareTo(k1.getPublishedAt()))
+                    // Return the stream to list
+                    .collect(Collectors.toList());
+
         }catch (IOException ex){
             log.error("Error", ex);
             return null;
         }
+    }
+
+    /**
+     *Filter the stream.
+     *
+     * @param idExtractor
+     * @param <T> news to filter
+     * @return true if the news already exists.
+     */
+    private static <T> Predicate<T> distintById(Function<? super T, ?> idExtractor){
+        Map<Object, Boolean> seen = new ConcurrentHashMap<>();
+        return t -> seen.putIfAbsent(idExtractor.apply(t), Boolean.TRUE) == null;
     }
 
     /**
