@@ -5,7 +5,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca210b02-eb0f-460c-8935-f72241a87548" name="Default Changelist" comment="feat(Laravel): add web app" />
+    <list default="true" id="ca210b02-eb0f-460c-8935-f72241a87548" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
 =======
   <component name="ChangeListManager">
     <list default="true" id="424d9caa-8788-423d-9a7b-b0efd918e69b" name="Default Changelist" comment="">
@@ -245,7 +248,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
 <<<<<<< HEAD
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
 =======
 >>>>>>> origin/master
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -280,7 +283,8 @@
       <workItem from="1609759835659" duration="2996000" />
       <workItem from="1609767183245" duration="545000" />
       <workItem from="1609767747451" duration="326000" />
-      <workItem from="1609768086757" duration="1948000" />
+      <workItem from="1609768086757" duration="2572000" />
+      <workItem from="1609770700665" duration="32000" />
     </task>
     <task id="LOCAL-00001" summary="perf(News): add the color palette at the themes">
       <created>1609724261308</created>
@@ -296,7 +300,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609768762213</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix(gitignre): add .env and /vendor">
+      <created>1609770178121</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609770178121</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
 =======
       <changelist id="3dfd45da-8c6d-4351-8d40-b8bd0e2df731" name="Default Changelist" comment="" />
       <created>1609103028748</created>
@@ -352,7 +363,8 @@
     <MESSAGE value="feat(Laravel): Create the web app" />
     <MESSAGE value="perf(News): add the color palette at the themes" />
     <MESSAGE value="feat(Laravel): add web app" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Laravel): add web app" />
+    <MESSAGE value="fix(gitignre): add .env and /vendor" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(gitignre): add .env and /vendor" />
   </component>
 =======
 >>>>>>> origin/master
