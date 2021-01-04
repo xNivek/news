@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\News;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -14,14 +13,14 @@ class NewsController extends Controller
      */
     public function index()
     {
+
         // SELECT * FROM News
         $news = News::all();
-
-        // Return the GET request with code 200
+        //return the GET request with code 200
         return response([
-            'message' => 'Retrieved Successfully',
-            'news' => $news
-        ], 200);
+           'message' => 'Retrived Successfully',
+           'news' => $news
+       ], 200);
     }
 
     /**
