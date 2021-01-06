@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eaa02e0b-0551-4028-b5ad-15e1e74604ca" name="Default Changelist" comment="chore(.ignore): remove vendor .ignore">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="eaa02e0b-0551-4028-b5ad-15e1e74604ca" name="Default Changelist" comment="build(News): create the news table">
+      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +167,7 @@
       <option name="presentableId" value="Default" />
       <updated>1609906919712</updated>
       <workItem from="1609906921249" duration="2112000" />
-      <workItem from="1609958887026" duration="6901000" />
+      <workItem from="1609958887026" duration="4512000" />
     </task>
     <task id="LOCAL-00001" summary="feat(Laravel): create the web application">
       <created>1609908900151</created>
@@ -182,35 +183,11 @@
       <option name="project" value="LOCAL" />
       <updated>1609908998806</updated>
     </task>
-    <task id="LOCAL-00003" summary="build(User): Autentication and validation with sanctum">
-      <created>1609964249626</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1609964249626</updated>
-    </task>
-    <task id="LOCAL-00004" summary="chore(.ignore): remove vendor .ignore">
-      <created>1609964413271</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1609964413271</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ID_ORDER">
-      <list>
-        <option value="Default.Root" />
-        <option value="Default.Author" />
-        <option value="Default.Date" />
-        <option value="Default.Subject" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -227,8 +204,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat(Laravel): create the web application" />
     <MESSAGE value="build(News): create the news table" />
-    <MESSAGE value="build(User): Autentication and validation with sanctum" />
-    <MESSAGE value="chore(.ignore): remove vendor .ignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore(.ignore): remove vendor .ignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="build(News): create the news table" />
   </component>
 </project>
