@@ -14,14 +14,13 @@ class NewsController extends Controller
      */
     public function index()
     {
-
         // SELECT * FROM News
         $news = News::all();
-        //return the GET request with code 200
+
         return response([
-           'message' => 'Retrived Successfully',
-           'news' => $news
-       ], 200);
+            'message' => 'Retrieve Successfully',
+            'news' => $news
+        ], 200);
     }
 
     /**
