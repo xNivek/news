@@ -9,8 +9,8 @@ class News extends Model
 {
     use HasFactory;
 
-    //TODO: revisar o eliminar
+    //TODO:revisar o eliminar
     //protected $table = "news";
 
-    //protected $fillable = ['title','author','source','url','urlimage','description','content','published_at'];
+   //protected $fillable = ['title','author','source','url','url_image','description','content','published_at'];
 }
