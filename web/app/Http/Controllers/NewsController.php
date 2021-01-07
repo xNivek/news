@@ -43,7 +43,7 @@ class NewsController extends Controller
     {
 
         $news = new News();
-        $news ->save($request);
+
 
         /**
         $news->title = $request->title;
@@ -52,8 +52,12 @@ class NewsController extends Controller
         $news->url = $request->url;
         $news->url_image = $request->url_image;
         $news->description = $request->description;
-        $news->content = $request->content;
+        $news->contenido = $request->contenido;
         $news->published_at = $request->published_at;
+
+        if($news->save()){
+            return new NewsResource();
+        }
         */
 
     }
@@ -66,7 +70,8 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        //
+        $news= News::findOrFail($id);
+        return new NewsResource($news);
     }
 
     /**
@@ -89,7 +94,22 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $news = News::findOrFail($id);
+
+        /**
+        $news->title = $request->title;
+        $news->author = $request->author;
+        $news->source = $request->source;
+        $news->url = $request->url;
+        $news->url_image = $request->url_image;
+        $news->description = $request->description;
+        $news->contenido = $request->contenido;
+        $news->published_at = $request->published_at;
+
+        if($news->save()){
+            return new NewsResource();
+        }
+        */
     }
 
     /**
@@ -100,6 +120,9 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $news = News::findOrFail($id);
+        if($news->delete()){
+            return new NewsResource($news);
+        }
     }
 }

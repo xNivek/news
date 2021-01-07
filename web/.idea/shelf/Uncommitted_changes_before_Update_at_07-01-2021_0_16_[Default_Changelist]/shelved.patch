@@ -8,14 +8,51 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 diff --git a/.idea/workspace.xml b/.idea/workspace.xml
 --- a/.idea/workspace.xml	
 +++ b/.idea/workspace.xml	
+<<<<<<< HEAD
 @@ -2,9 +2,8 @@
+=======
+@@ -2,9 +2,7 @@
+>>>>>>> origin/master
  <project version="4">
    <component name="ChangeListManager">
      <list default="true" id="946d5f97-e22f-490c-a33b-2431b50b5cff" name="Default Changelist" comment="">
 -      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+<<<<<<< HEAD
 +      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
+=======
+>>>>>>> origin/master
        <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
 -      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_06_042911_create_news_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_06_042911_create_news_table.php" afterDir="false" />
      </list>
      <option name="SHOW_DIALOG" value="false" />
      <option name="HIGHLIGHT_CONFLICTS" value="true" />
+<<<<<<< HEAD
+=======
+@@ -207,7 +205,16 @@
+       <workItem from="1609981840840" duration="690000" />
+       <workItem from="1609982672261" duration="738000" />
+       <workItem from="1609983439166" duration="1633000" />
++      <workItem from="1609986101350" duration="1742000" />
++    </task>
++    <task id="LOCAL-00001" summary="refactor(News Table): add auto increment ID">
++      <created>1609986226374</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1609986226374</updated>
+     </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -225,4 +232,8 @@
+     </option>
+     <option name="oldMeFiltersMigrated" value="true" />
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="refactor(News Table): add auto increment ID" />
++    <option name="LAST_COMMIT_MESSAGE" value="refactor(News Table): add auto increment ID" />
++  </component>
+ </project>
+\ No newline at end of file
+>>>>>>> origin/master

@@ -151,6 +151,33 @@
       <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
       <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/routing" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/process" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/polyfill-iconv" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/symfony (1)/console" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0">

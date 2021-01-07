@@ -14,5 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        //php artisan db:seed para llenar con el faker
+        \App\Models\News::factory(20)->create();
     }
 }
