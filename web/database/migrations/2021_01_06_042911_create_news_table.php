@@ -21,7 +21,7 @@ class CreateNewsTable extends Migration
             $table->string("url");
             $table->string("url_image")->nullable();
             $table->string("description");
-            $table->string("content");
+            $table->string("contenido");
             $table->timestamp("published_at");
             $table->timestamps();
         });
