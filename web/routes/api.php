@@ -19,11 +19,22 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//CRUD Routes
+//Route::Resource('news', NewsController::class);
 
-Route::Resource('news', NewsController::class);
+Route::get('/news',[NewsController::class,'index']);
 
-//TODO: add routes of NwsController
+Route::post('/news',[NewsController::class,'store']);
 
+Route::get('/news/{id}',[NewsController::class,'show']);
+
+//Route::post('/news',[NewsController::class,'create']);
+
+Route::put('/news/{id}',[NewsController::class,'update']);
+
+Route::put('/news/{id}',[NewsController::class,'destroy']);
+
+//Autentication Route
 Route::post('/register',[AuthController::class,'register']);
 
 Route::post('/login',[AuthController::class,'login']);
