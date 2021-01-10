@@ -23,6 +23,16 @@ class NewsController extends Controller
         ], 200);
     }
 
+    public function noticias()
+    {
+        // SELECT * FROM News
+        $news = News::all();
+
+        return view('news.index', compact('news'));
+
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -30,7 +40,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('news.create');
     }
 
     /**
