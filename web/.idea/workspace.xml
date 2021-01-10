@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="946d5f97-e22f-490c-a33b-2431b50b5cff" name="Default Changelist" comment="build(Controller): Destroy implementation">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="946d5f97-e22f-490c-a33b-2431b50b5cff" name="Default Changelist" comment="feat(Factory): Add faker">
+      <change afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/news/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/news/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/News.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_06_042911_create_news_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_06_042911_create_news_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +212,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/ProyectoFinal/news/web" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -239,7 +239,11 @@
       <workItem from="1609982672261" duration="738000" />
       <workItem from="1609983439166" duration="1633000" />
       <workItem from="1609993880123" duration="502000" />
-      <workItem from="1610051970425" duration="5725000" />
+      <workItem from="1610051970425" duration="6300000" />
+      <workItem from="1610077599200" duration="1202000" />
+      <workItem from="1610081784848" duration="1259000" />
+      <workItem from="1610221194543" duration="1864000" />
+      <workItem from="1610310020484" duration="1656000" />
     </task>
     <task id="LOCAL-00001" summary="build(Controller): Store implementation">
       <created>1609992037386</created>
@@ -255,7 +259,21 @@
       <option name="project" value="LOCAL" />
       <updated>1609994350464</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix(Web): Word change content to contenido">
+      <created>1610058006603</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1610058006603</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat(Factory): Add faker">
+      <created>1610058235607</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1610058235607</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,6 +294,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="build(Controller): Store implementation" />
     <MESSAGE value="build(Controller): Destroy implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="build(Controller): Destroy implementation" />
+    <MESSAGE value="fix(Web): Word change content to contenido" />
+    <MESSAGE value="feat(Factory): Add faker" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Factory): Add faker" />
   </component>
 </project>
