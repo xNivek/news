@@ -1,0 +1,148 @@
+Index: app/Http/Controllers/NewsController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nnamespace App\\Http\\Controllers;\r\n\r\nuse App\\Models\\News;\r\nuse Illuminate\\Http\\Request;\r\n\r\nclass NewsController extends Controller\r\n{\r\n    /**\r\n     * Display a listing of the resource.\r\n     *\r\n     * @return \\Illuminate\\Http\\Response\r\n     */\r\n    public function index()\r\n    {\r\n        // SELECT * FROM News\r\n        $news = News::all();\r\n\r\n        return response([\r\n            'message' => 'Retrieve Successfully',\r\n            'news' => $news\r\n        ], 200);\r\n    }\r\n\r\n    /**\r\n     * Show the form for creating a new resource.\r\n     *\r\n     * @return \\Illuminate\\Http\\Response\r\n     */\r\n    public function create()\r\n    {\r\n        //\r\n    }\r\n\r\n    /**\r\n     * Store a newly created resource in storage.\r\n     *\r\n     * @param  \\Illuminate\\Http\\Request  $request\r\n     * @return \\Illuminate\\Http\\Response\r\n     */\r\n    public function store(Request $request)\r\n    {\r\n\r\n        $news = new News();\r\n\r\n\r\n        /**\r\n        $news->title = $request->title;\r\n        $news->author = $request->author;\r\n        $news->source = $request->source;\r\n        $news->url = $request->url;\r\n        $news->url_image = $request->url_image;\r\n        $news->description = $request->description;\r\n        $news->contenido = $request->contenido;\r\n        $news->published_at = $request->published_at;\r\n\r\n        if($news->save()){\r\n            return new NewsResource();\r\n        }\r\n        */\r\n\r\n    }\r\n\r\n    /**\r\n     * Display the specified resource.\r\n     *\r\n     * @param  int  $id\r\n     * @return \\Illuminate\\Http\\Response\r\n     */\r\n    public function show($id)\r\n    {\r\n        $news= News::findOrFail($id);\r\n        return new NewsResource($news);\r\n    }\r\n\r\n    /**\r\n     * Show the form for editing the specified resource.\r\n     *\r\n     * @param  int  $id\r\n     * @return \\Illuminate\\Http\\Response\r\n     */\r\n    public function edit($id)\r\n    {\r\n        //\r\n    }\r\n\r\n    /**\r\n     * Update the specified resource in storage.\r\n     *\r\n     * @param  \\Illuminate\\Http\\Request  $request\r\n     * @param  int  $id\r\n     * @return \\Illuminate\\Http\\Response\r\n     */\r\n    public function update(Request $request, $id)\r\n    {\r\n        $news = News::findOrFail($id);\r\n\r\n        /**\r\n        $news->title = $request->title;\r\n        $news->author = $request->author;\r\n        $news->source = $request->source;\r\n        $news->url = $request->url;\r\n        $news->url_image = $request->url_image;\r\n        $news->description = $request->description;\r\n        $news->contenido = $request->contenido;\r\n        $news->published_at = $request->published_at;\r\n\r\n        if($news->save()){\r\n            return new NewsResource();\r\n        }\r\n        */\r\n    }\r\n\r\n    /**\r\n     * Remove the specified resource from storage.\r\n     *\r\n     * @param  int  $id\r\n     * @return \\Illuminate\\Http\\Response\r\n     */\r\n    public function destroy($id)\r\n    {\r\n        $news = News::findOrFail($id);\r\n        if($news->delete()){\r\n            return new NewsResource($news);\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/Http/Controllers/NewsController.php b/app/Http/Controllers/NewsController.php
+--- a/app/Http/Controllers/NewsController.php	(revision d93e9e7a7d4214e486dec06b5eabb9764089843b)
++++ b/app/Http/Controllers/NewsController.php	(date 1610067840757)
+@@ -30,7 +30,7 @@
+      */
+     public function create()
+     {
+-        //
++        return view('news.create');
+     }
+ 
+     /**
+Index: routes/web.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nuse Illuminate\\Support\\Facades\\Route;\r\n\r\n/*\r\n|--------------------------------------------------------------------------\r\n| Web Routes\r\n|--------------------------------------------------------------------------\r\n|\r\n| Here is where you can register web routes for your application. These\r\n| routes are loaded by the RouteServiceProvider within a group which\r\n| contains the \"web\" middleware group. Now create something great!\r\n|\r\n*/\r\n\r\nRoute::get('/', function () {\r\n    return view('welcome');\r\n});\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/routes/web.php b/routes/web.php
+--- a/routes/web.php	(revision d93e9e7a7d4214e486dec06b5eabb9764089843b)
++++ b/routes/web.php	(date 1610067871914)
+@@ -16,3 +16,7 @@
+ Route::get('/', function () {
+     return view('welcome');
+ });
++
++
++
++
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"946d5f97-e22f-490c-a33b-2431b50b5cff\" name=\"Default Changelist\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/Http/Controllers/NewsController.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/Http/Controllers/NewsController.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/Models/News.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/Models/News.php\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\" doNotAsk=\"true\">\r\n    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>\r\n    <execution />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n  </component>\r\n  <component name=\"PhpWorkspaceProjectConfiguration\">\r\n    <include_path>\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/monolog\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/myclabs\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/nesbot\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/nikic\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/nunomaduro\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/opis\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/phar-io\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/phpdocumentor\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/phpoption\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/phpspec\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/phpunit\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/psr\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/hamcrest\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/psy\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/guzzlehttp\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/ralouphie\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/graham-campbell\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/ramsey\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/fruitcake\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/filp\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/sebastian\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/fideloper\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/swiftmailer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/symfony\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/fakerphp\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/facade\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/theseer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/egulias\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/tijsverkoyen\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/vlucas\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/dragonmantank\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/voku\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/doctrine\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/dnoegel\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/webmozart\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/composer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/brick\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/mockery\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/bin\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/league\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/asm89\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vendor/laravel\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/graham-campbell/result-type\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/dragonmantank/cron-expression\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/lexer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/fruitcake/laravel-cors\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/instantiator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/inflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/ralouphie/getallheaders\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/swiftmailer/swiftmailer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/voku/portable-ascii\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/fideloper/proxy\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-dumper\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/string\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/service-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/routing\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/process\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php80\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php73\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php72\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-mbstring\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-iconv\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/phpunit\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-ctype\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-timer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mime\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-text-template\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-kernel\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-invoker\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-foundation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/type-resolver\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-file-iterator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-code-coverage\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/finder\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/guzzlehttp/psr7\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/guzzlehttp/promises\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/error-handler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/guzzlehttp/guzzle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/deprecation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/css-selector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/console\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/filp/whoops\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/egulias/email-validator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phar-io/version\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phar-io/manifest\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laravel/tinker\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laravel/sanctum\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laravel/sail\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laravel/framework\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nikic/php-parser\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/brick/math\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nesbot/carbon\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/opis/closure\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/ramsey/uuid\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/ramsey/collection\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/league/mime-type-detection\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/league/flysystem\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/league/commonmark\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nunomaduro/collision\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/mockery/mockery\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/version\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/fakerphp/faker\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/type\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/resource-operations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/recursion-context\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/object-reflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/object-enumerator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/myclabs/deep-copy\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/lines-of-code\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/global-state\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/exporter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/environment\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/diff\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/complexity\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vlucas/phpdotenv\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/comparator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/code-unit\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/cli-parser\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/theseer/tokenizer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/facade/ignition-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/facade/ignition\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/facade/flare-client-php\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/asm89/stack-cors\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpoption/phpoption\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/simple-cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/log\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/monolog/monolog\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/http-message\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/http-client\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/container\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psy/psysh\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpspec/prophecy\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/hamcrest/hamcrest-php\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/webmozart/assert\" />\r\n    </include_path>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1mi8oNAFFM4mKkd9DFHeR5c8AeW\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"preferences.pluginManager\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"946d5f97-e22f-490c-a33b-2431b50b5cff\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1609965225286</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1609965225286</updated>\r\n      <workItem from=\"1609965228055\" duration=\"903000\" />\r\n      <workItem from=\"1609968389109\" duration=\"3207000\" />\r\n      <workItem from=\"1609979860168\" duration=\"732000\" />\r\n      <workItem from=\"1609980794382\" duration=\"982000\" />\r\n      <workItem from=\"1609981840840\" duration=\"690000\" />\r\n      <workItem from=\"1609982672261\" duration=\"738000\" />\r\n      <workItem from=\"1609983439166\" duration=\"1633000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n</project>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision d93e9e7a7d4214e486dec06b5eabb9764089843b)
++++ b/.idea/workspace.xml	(date 1610313123652)
+@@ -2,9 +2,18 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="946d5f97-e22f-490c-a33b-2431b50b5cff" name="Default Changelist" comment="">
++      <change afterPath="$PROJECT_DIR$/resources/views/create.blade.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06-01-2021_23_27__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06-01-2021_23_27__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06-01-2021_23_27__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06-01-2021_23_27__Default_Changelist_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07-01-2021_0_16__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07-01-2021_0_16__Default_Changelist_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07-01-2021_19_26__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07-01-2021_19_26__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07-01-2021_19_27__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07-01-2021_19_27__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07-01-2021_1_01__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07-01-2021_1_01__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07-01-2021_1_01__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07-01-2021_1_01__Default_Changelist_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07-01-2021_1_31__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07-01-2021_1_31__Default_Changelist_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/Models/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/News.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -18,6 +27,9 @@
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+   </component>
++  <component name="GitToolBoxStore">
++    <option name="projectConfigVersion" value="2" />
++  </component>
+   <component name="PhpWorkspaceProjectConfiguration">
+     <include_path>
+       <path value="$PROJECT_DIR$/vendor/vendor/monolog" />
+@@ -169,6 +181,33 @@
+       <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+       <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
+       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/var-dumper" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/translation-contracts" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/translation" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/string" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/service-contracts" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/routing" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/process" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/polyfill-php80" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/polyfill-php73" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/polyfill-php72" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/polyfill-mbstring" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/polyfill-intl-normalizer" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/polyfill-intl-idn" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/polyfill-intl-grapheme" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/polyfill-iconv" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/polyfill-ctype" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/mime" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/http-kernel" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/http-foundation" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/http-client-contracts" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/finder" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/event-dispatcher-contracts" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/event-dispatcher" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/error-handler" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/deprecation-contracts" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/css-selector" />
++      <path value="$PROJECT_DIR$/vendor/symfony (1)/console" />
+     </include_path>
+   </component>
+   <component name="ProjectId" id="1mi8oNAFFM4mKkd9DFHeR5c8AeW" />
+@@ -207,6 +246,9 @@
+       <workItem from="1609981840840" duration="690000" />
+       <workItem from="1609982672261" duration="738000" />
+       <workItem from="1609983439166" duration="1633000" />
++      <workItem from="1610059872476" duration="172000" />
++      <workItem from="1610063471953" duration="5154000" />
++      <workItem from="1610313114488" duration="9000" />
+     </task>
+     <servers />
+   </component>
+@@ -225,4 +267,4 @@
+     </option>
+     <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+-</project>
++</project>
+\ No newline at end of file
+Index: resources/views/create.blade.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/resources/views/create.blade.php b/resources/views/create.blade.php
+new file mode 100644
+--- /dev/null	(date 1610067170866)
++++ b/resources/views/create.blade.php	(date 1610067170866)
+@@ -0,0 +1,10 @@
++<?php
++<div class="container">
++            <div class="row">
++                <div class="col-md-8 col-md-offset-2">
++                    <div class="panel panel-default">
++                        <div class="panel-heading">Registro de usuario</div>
++
++                    </div>
++                </div>
++            </div>

@@ -18,9 +18,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/news",[NewsController::class, "noticias"]);
+
+
+
+
+Route::get("/news",[NewsController::class, "noticias"])->name('news.index');
 //Route::get("/news/create",[NewsController::class, "create"]);
 //Route::get('/news/create',[NewsController::class, "create"] );
 Route::get('/news/create', function () {
     return view('news.create');
 });
+
+
+Route::post('/news', [NewsController::class, 'store'])->name('news.store');
