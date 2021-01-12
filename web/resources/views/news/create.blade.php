@@ -5,85 +5,79 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">ADD News</h5>
+                    <h5 class="title">Agregar noticia</h5>
                 </div>
                 <div class="card-body">
-                    <form method="post">
+                    <form action="{{ route('news.store') }}" method="post">
+                        @csrf
                         <div class="row">
                             <div class="col-md-5 pr-md-1">
                                 <div class="form-group">
-                                    <label>Company (disabled)</label>
-                                    <input type="text" class="form-control" disabled="" placeholder="Company" value="Creative Code Inc.">
+                                    <label for="exampleInput">Título</label>
+                                    <input type="text" class="form-control" placeholder="Título">
                                 </div>
                             </div>
                             <div class="col-md-3 px-md-1">
                                 <div class="form-group">
-                                    <label>Username</label>
-                                    <input type="text" class="form-control" placeholder="Username" value="michael23">
+                                    <label for="exampleInput">Autor</label>
+                                    <input type="text" class="form-control" placeholder="Autor">
                                 </div>
                             </div>
                             <div class="col-md-4 pl-md-1">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" placeholder="mike@email.com">
+                                    <label for="exampleInput">Fuente</label>
+                                    <input type="text" class="form-control" placeholder="Fuente de la noticia...">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 pr-md-1">
                                 <div class="form-group">
-                                    <label>First Name</label>
-                                    <input type="text" class="form-control" placeholder="Company" value="Mike">
+                                    <label for="exampleInput">URL</label>
+                                    <input type="text" class="form-control" placeholder="URL...">
                                 </div>
                             </div>
                             <div class="col-md-6 pl-md-1">
                                 <div class="form-group">
-                                    <label>Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Last Name" value="Andrew">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Address</label>
-                                    <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4 pr-md-1">
-                                <div class="form-group">
-                                    <label>City</label>
-                                    <input type="text" class="form-control" placeholder="City" value="Mike">
-                                </div>
-                            </div>
-                            <div class="col-md-4 px-md-1">
-                                <div class="form-group">
-                                    <label>Country</label>
-                                    <input type="text" class="form-control" placeholder="Country" value="Andrew">
-                                </div>
-                            </div>
-                            <div class="col-md-4 pl-md-1">
-                                <div class="form-group">
-                                    <label>Postal Code</label>
-                                    <input type="number" class="form-control" placeholder="ZIP Code">
+                                    <label for="exampleInput">URL de la imagen</label>
+                                    <input type="text" class="form-control" placeholder="URL de la imagen...">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="form-group">
-                                    <label>About Me</label>
-                                    <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                                    <label>Descripción</label>
+                                    <textarea rows="4" cols="80" class="form-control"
+                                              placeholder="Descripción de la noticia..."></textarea>
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>Contenido</label>
+                                    <textarea rows="4" cols="80" class="form-control"
+                                              placeholder="Contenido de la noticia..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <!--TODO: modificar fecha de publicación del sistema o de la noticia -->
+                        <div class="row">
+                            <div class="col-md-5 pr-md-1">
+                                <div class="form-group">
+                                    <label for="exampleInput">Fecha publicación</label>
+                                    <input type="text" class="form-control" placeholder="Fecha...">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-fill btn-primary">Guardar</button>
+                        </div>
                     </form>
+
                 </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-fill btn-primary">Save</button>
-                </div>
+
             </div>
         </div>
 
