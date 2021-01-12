@@ -52,23 +52,21 @@ class NewsController extends Controller
     public function store(Request $request)
     {
 
-        $news = new News();
 
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'author' => 'required|string|max:50',
+            'source' => 'required|string|max:100',
+            'url' => 'required|string|max:250',  //unique:news
+            'url_image' => 'require|string|mas:250',
+            'description' => 'require|string',
+            'contenido' => 'require|string',
+            'published_at' => 'require|date'
+        ]);
 
-        /**
-        $news->title = $request->title;
-        $news->author = $request->author;
-        $news->source = $request->source;
-        $news->url = $request->url;
-        $news->url_image = $request->url_image;
-        $news->description = $request->description;
-        $news->contenido = $request->contenido;
-        $news->published_at = $request->published_at;
+        News::create($request->all());
 
-        if($news->save()){
-            return new NewsResource();
-        }
-        */
+        return redirect()->route('news.index');
 
     }
 
