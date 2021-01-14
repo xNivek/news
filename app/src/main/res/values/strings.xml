@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">News</string>
+    <string name="app_name"></string>
     <string name="title"></string>
     <string name="subtitle"></string>
     <string name="night_mode">Night Mode</string>
