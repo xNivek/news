@@ -64,6 +64,7 @@ class NewsController extends Controller
             'published_at' => 'require|date'
         ]);
          */
+        //$request->published_at = date("Y-m-d H:i:s");
 
         News::create($request->all());
 

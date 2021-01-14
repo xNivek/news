@@ -64,10 +64,10 @@
                         </div>
                         <!--TODO: modificar fecha de publicación del sistema o de la noticia -->
                         <div class="row">
-                            <div class="col-md-5 pr-md-1" hidden>
+                            <div class="col-md-5 pr-md-1">
                                 <div class="form-group">
                                     <label for="published_at">Fecha publicación</label>
-                                    <input id="published_at" name="published_at" type="text" class="form-control" placeholder="Fecha...">
+                                    <input id="published_at" name="published_at" type="text" class="form-control" placeholder="Fecha..." value="{{date("Y-m-d H:i:s")}}" readonly>
                                 </div>
                             </div>
                         </div>
