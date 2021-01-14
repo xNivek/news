@@ -100,7 +100,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-fill btn-primary">Guardar</button>
+                            <button type="submit" class="btn btn-fill btn-primary">Publicar</button>
                         </div>
                     </form>
 

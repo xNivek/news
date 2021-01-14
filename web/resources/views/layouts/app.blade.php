@@ -32,26 +32,26 @@
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="javascript:void(0)" class="simple-text logo-mini">
-                    CT
+
                 </a>
                 <a href="javascript:void(0)" class="simple-text logo-normal">
-                    Creative Tim
+                    NEWS
                 </a>
             </div>
             <ul class="nav">
                 <li>
-                    <a href="./dashboard.html">
+                    <a href="/news">
                         <i class="tim-icons icon-chart-pie-36"></i>
-                        <p>Dashboard</p>
+                        <p>Noticias</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./icons.html">
+                    <a href="/api/news">
                         <i class="tim-icons icon-atom"></i>
-                        <p>Icons</p>
+                        <p>JSON</p>
                     </a>
                 </li>
-                <li>
+               <!-- <li>
                     <a href="./map.html">
                         <i class="tim-icons icon-pin"></i>
                         <p>Maps</p>
@@ -92,7 +92,7 @@
                         <i class="tim-icons icon-spaceship"></i>
                         <p>Upgrade to PRO</p>
                     </a>
-                </li>
+                </li>-->
             </ul>
         </div>
     </div>
@@ -108,7 +108,7 @@
                             <span class="navbar-toggler-bar bar3"></span>
                         </button>
                     </div>
-                    <a class="navbar-brand" href="javascript:void(0)">User Profile</a>
+                    <a class="navbar-brand" href="javascript:void(0)">API NEWS</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-bar navbar-kebab"></span>

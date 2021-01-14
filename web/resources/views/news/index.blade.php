@@ -10,31 +10,34 @@
                     <h4 class="card-title"> Simple Table</h4>
                 </div>
                 <div class="card-body">
-                    <a href="/news/create" class="btn btn-sm btn-success">ADD</a>
+                    <a href="/news/create" class="btn btn-sm btn-success">Añadir</a>
                     <div class="table-responsive">
                         <table class="table tablesorter " id="">
                             <thead class=" text-primary">
                             <tr>
                                 <th>
-                                    title
+                                    Título
                                 </th>
                                 <th>
-                                    author
+                                    Autor
                                 </th>
                                 <th>
-                                    source
+                                    Fuente
                                 </th>
                                 <th>
                                     url
                                 </th>
                                 <th>
-                                    description
+                                    url_imagen
                                 </th>
                                 <th>
-                                    content
+                                    Descripción
                                 </th>
                                 <th>
-                                    published_at
+                                    Contenido
+                                </th>
+                                <th>
+                                    Publicado en
                                 </th>
                                 <th >
                                     Action
@@ -53,6 +56,7 @@
                                     <td>{{$item->author}}</td>
                                     <td>{{$item->source}}</td>
                                     <td>{{$item->url}}</td>
+                                    <td>{{$item->url_image}}</td>
                                     <td>{{$item->description}}</td>
                                     <td>{{$item->contenido}}</td>
                                     <td>{{$item->published_at}}</td>
