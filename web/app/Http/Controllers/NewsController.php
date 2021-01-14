@@ -52,19 +52,19 @@ class NewsController extends Controller
     public function store(Request $request)
     {
 
-        /**
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'author' => 'required|string|max:50',
-            'source' => 'required|string|max:100',
-            'url' => 'required|string|max:250',  //unique:news
-            'url_image' => 'require|string|mas:250',
-            'description' => 'require|string',
-            'contenido' => 'require|string',
-            'published_at' => 'require|date'
+
+        $validated = $request->validate([
+            'title' => 'required|max:255',
+            'author' => 'required|max:50',
+            'source' => 'required',
+            'url' => 'required|max:255',
+            'url_image' => 'nullable|max:255',
+            'description' => 'required|max:255',
+            'contenido' => 'required|max:255',
+            'published_at' => 'required|max:255',
         ]);
-         */
-        //$request->published_at = date("Y-m-d H:i:s");
+
+        
 
         News::create($request->all());
 
