@@ -52,7 +52,7 @@ class NewsController extends Controller
     public function store(Request $request)
     {
 
-
+        /**
         $request->validate([
             'title' => 'required|string|max:255',
             'author' => 'required|string|max:50',
@@ -63,6 +63,7 @@ class NewsController extends Controller
             'contenido' => 'require|string',
             'published_at' => 'require|date'
         ]);
+         */
 
         News::create($request->all());
 
