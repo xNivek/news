@@ -21,6 +21,18 @@
     <link href="{{ asset('assets/css/black-dashboard.css?v=1.0.0') }}" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{ asset('assets/demo/demo.css') }}" rel="stylesheet" />
+    <!--DataTable-->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <link href="https://nightly.datatables.net/css/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
+    <script src="https://nightly.datatables.net/js/dataTables.bootstrap4.js"></script>
+
+    <style type="text/css">
+        option { background-color: #32325d; }
+    </style>
+
+
 </head>
 
 <body class="">
@@ -117,7 +129,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navigation">
                     <ul class="navbar-nav ml-auto">
-                        <li class="search-bar input-group">
+                        <!--<li class="search-bar input-group">
                             <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split" ></i>
                                 <span class="d-lg-none d-md-block">Search</span>
                             </button>
@@ -154,8 +166,10 @@
                                 <li class="dropdown-divider"></li>
                                 <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a></li>
                             </ul>
-                        </li>
+                        </li>-->
                         <li class="separator d-lg-none"></li>
+                        <br />
+                        <br />
                     </ul>
                 </div>
             </div>
@@ -252,7 +266,7 @@
 
 
 
-<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+
 <script src="{{ asset('assets/js/popper.min.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/js/perfect-scrollbar.jquery.min.js') }}"></script>
