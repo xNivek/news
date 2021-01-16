@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <a href="/news/create" class="btn btn-sm btn-success">Añadir</a>
                     <div class="table-responsive">
-                        <table class="table tablesorter " id="">
+                        <table class="table table-striped" id="myTable">
                             <thead class=" text-primary">
                             <tr>
                                 <th>
@@ -74,5 +74,23 @@
                 </div>
             </div>
         </div>
+
     </div>
+    <script>
+        $(document).ready(function () {
+            var table = $('#myTable').DataTable({
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ por página",
+                    "zeroRecords": "No se encontraron datos",
+                    "info": "Mostrando página PAGE de PAGES",
+                    "infoEmpty": "Sin datos disponibles",
+                    "infoFiltered": "(Filtro desde MAX total datos)",
+                    "search": "Buscar",
+                    "decimal": ",",
+                    "thousands": "."
+                },
+                "order": [[ 7, "desc" ]]
+            });
+        });
+    </script>
 @endsection
