@@ -14,10 +14,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -34,9 +33,15 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 import cl.ucn.disc.dsm.jramirez.news.R;
+import cl.ucn.disc.dsm.jramirez.news.model.Interface.JsonPlaceHoldelderApi;
 import cl.ucn.disc.dsm.jramirez.news.model.News;
 import cl.ucn.disc.dsm.jramirez.news.services.Contracts;
 import cl.ucn.disc.dsm.jramirez.news.services.ContractsImplNewsApi;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * The Main Class.
@@ -44,8 +49,10 @@ import cl.ucn.disc.dsm.jramirez.news.services.ContractsImplNewsApi;
  * @author  Jean Ramirez-Castillo.
  */
 public class MainActivity extends AppCompatActivity {
-
+//this is a variable of the switch
     private Switch aSwitch;
+
+    private static final String BASE_URL="http://192.168.1.9:8000/api/";//here is my base url+
 
     public static final String MyPREFERENCES="nightModePrefs";
     public static final String KEY_ISNIGHTMODE ="isNightMode";
@@ -56,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private static final Logger log = LoggerFactory.getLogger(MainActivity.class);
 
-
+    private TextView mJsonTxtView;
 
     /**
      * onCreate.
@@ -66,10 +73,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+
+        mJsonTxtView=findViewById(R.id.jsonText);
 
 
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
@@ -105,11 +116,13 @@ public class MainActivity extends AppCompatActivity {
         fastAdapter.withSelectable(false);
 
         // The Recycler view
-        RecyclerView recyclerView = findViewById(R.id.am_rv_news);
+       /** RecyclerView recyclerView = findViewById(R.id.am_rv_news);
         recyclerView.setAdapter(fastAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-
+        */
+       //llama a la fun
+        //getNews();
         // Get the news in the background thread
         AsyncTask.execute(() -> {
 
@@ -144,4 +157,50 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void getNews(){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                //.baseUrl("")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        JsonPlaceHoldelderApi jsonPlaceHoldelderApi=retrofit.create(JsonPlaceHoldelderApi.class);
+
+        Call<List<News>> call = jsonPlaceHoldelderApi.getNews();
+        call.enqueue(new Callback<List<News>>() {
+            @Override
+            public void onResponse(Call<List<News>> call, Response<List<News>> response) {
+                if(!response.isSuccessful()){
+                    mJsonTxtView.setText("codigo"+ response.code());
+                    return;
+                }
+
+                List<News> newsList = response.body();
+                for(News news: newsList){
+                    String content="";
+                    content+="id" + news.getId()+"\n";
+                    content+="title" + news.getTitle()+"\n";
+                    content+="author" + news.getAuthor()+"\n";
+                    content+="source" + news.getSource()+"\n";
+                    content+="url" + news.getUrl()+"\n";
+                    content+="url_image" + news.getUrlImage()+"\n";
+                    content+="description" + news.getDescription()+"\n";
+                    content+="contenido" + news.getContent()+"\n";
+                    content+="published_at" + news.getPublishedAt()+"\n";
+                    mJsonTxtView.append(content);
+
+
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<List<News>> call, Throwable t) {
+
+                mJsonTxtView.setText(t.getMessage());
+
+            }
+        });
+
+    }
 }
