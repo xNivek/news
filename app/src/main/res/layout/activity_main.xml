@@ -7,18 +7,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activities.MainActivity">
-    <Switch
-        android:id="@+id/switchl"
-        android:layout_width="wrap_content"
-        android:layout_height="14dp"
-        android:layout_marginStart="350dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.076"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="wrap_content"
@@ -35,7 +25,22 @@
 
 
             />
+
+
     </androidx.core.widget.NestedScrollView>
+
+    <Switch
+        android:id="@+id/switchl"
+        android:layout_width="wrap_content"
+        android:layout_height="14dp"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
