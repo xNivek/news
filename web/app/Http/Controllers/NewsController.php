@@ -64,7 +64,7 @@ class NewsController extends Controller
             'published_at' => 'required|max:255',
         ]);
 
-        
+
 
         News::create($request->all());
 
