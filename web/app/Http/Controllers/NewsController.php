@@ -15,7 +15,8 @@ class NewsController extends Controller
     public function index()
     {
         // SELECT * FROM News
-        //$news = News::all();
+        $news = News::all();
+        $news = News::paginate(2);
 
         //paginate json
         $newsList= News::paginate(2);
@@ -24,9 +25,20 @@ class NewsController extends Controller
 
         /**return response([
             'message' => 'Retrieve Successfully',
-            'news' => $newsS
+            'news' => $news
         ], 200);
          */
+    }
+    public function apires()
+    {
+        // SELECT * FROM News
+        $news = News::all();
+
+        return response([
+        'news' => $news
+        ], 200);
+
+
     }
 
     public function noticias()
