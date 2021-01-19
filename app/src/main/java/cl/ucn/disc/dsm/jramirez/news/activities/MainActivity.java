@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         newsAdapter.clear();
 
        //llama a la fun
-        //getNews();
+        getNews();
         // Get the news in the background thread
         AsyncTask.execute(() -> {
 
@@ -141,10 +141,15 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        // declarate swiper
         SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.am_swl_refresh);
+
+        // pull to refresh
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+
+                //clear the view
                 newsAdapter.clear();
                 // Get the news in the background thread
                 AsyncTask.execute(() -> {
