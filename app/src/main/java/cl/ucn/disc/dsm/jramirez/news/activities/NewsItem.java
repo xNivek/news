@@ -56,10 +56,10 @@ public final class NewsItem extends ModelAbstractItem<News, NewsItem, NewsItem.V
     public ViewHolder getViewHolder(@NonNull View view){
         return new ViewHolder(view);
     }
-
+//FIXME  .am_rv_news
     @Override
     public int getType(){
-        return R.id.am_rv_news;
+        return R.id.jsonText;
     }
 
     /**
