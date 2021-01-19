@@ -63,7 +63,7 @@
 
                                     <td style="width:210px">
                                         <a href="" class="btn btn-sm btn-primary">Edit</a>
-                                        <a href="" class="btn btn-sm btn-danger">Delete</a>
+                                        <a href="{{ route('news.destroy', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

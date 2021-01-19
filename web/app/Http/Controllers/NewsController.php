@@ -17,10 +17,15 @@ class NewsController extends Controller
         // SELECT * FROM News
         $news = News::all();
 
-        return response([
+        $newsList= News::paginate(2);
+        return response() ->json( $newsList,200);
+
+
+        /**return response([
             'message' => 'Retrieve Successfully',
-            'news' => $news
+            'news' => $newsS
         ], 200);
+         */
     }
 
     public function noticias()
@@ -64,7 +69,7 @@ class NewsController extends Controller
             'published_at' => 'required|max:255',
         ]);
 
-        
+
 
         News::create($request->all());
 
@@ -131,8 +136,7 @@ class NewsController extends Controller
     public function destroy($id)
     {
         $news = News::findOrFail($id);
-        if($news->delete()){
-            return new NewsResource($news);
-        }
+        $news->delete();
+        return redirect()->route('news.index');
     }
 }

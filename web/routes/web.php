@@ -31,3 +31,4 @@ Route::get('/news/create', function () {
 
 
 Route::post('/news', [NewsController::class, 'store'])->name('news.store');
+Route::get('/news/destroy/{id}', [NewsController::class, 'destroy'])->name('news.destroy');;
