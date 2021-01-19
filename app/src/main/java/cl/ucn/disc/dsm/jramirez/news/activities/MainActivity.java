@@ -23,6 +23,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.adapters.ModelAdapter;
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 //this is a variable of the switch
     private Switch aSwitch;
 
-    private static final String BASE_URL="http://192.168.1.9:8000/api/";//here is my base url+
+    private static final String BASE_URL="http://192.168.0.14:8000/api/";//here is my base url+
 
     public static final String MyPREFERENCES="nightModePrefs";
     public static final String KEY_ISNIGHTMODE ="isNightMode";
@@ -116,11 +117,12 @@ public class MainActivity extends AppCompatActivity {
         fastAdapter.withSelectable(false);
 
         // The Recycler view
-       /** RecyclerView recyclerView = findViewById(R.id.am_rv_news);
+        RecyclerView recyclerView = findViewById(R.id.am_rv_news);
         recyclerView.setAdapter(fastAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        */
+        newsAdapter.clear();
+
        //llama a la fun
         //getNews();
         // Get the news in the background thread
@@ -138,7 +140,36 @@ public class MainActivity extends AppCompatActivity {
             });
 
         });
+
+        SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.am_swl_refresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                newsAdapter.clear();
+                // Get the news in the background thread
+                AsyncTask.execute(() -> {
+
+                    // Using the contracts to get the news
+                    Contracts contracts = new ContractsImplNewsApi("12f61cbf1bc6493ba98f729b95339461");
+
+                    // Get the News from NewsApi (internet!)
+                    List<News> listNews = contracts.retrieveNews(30);
+
+                    // Set the adapter!
+                    runOnUiThread(() -> {
+                        newsAdapter.add(listNews);
+                    });
+
+                });
+                fastAdapter.notifyAdapterDataSetChanged();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
+
     }
+
+
 
     private void saveNightModeState(boolean nightMode) {
         SharedPreferences.Editor editor = sharedpreferences.edit();
