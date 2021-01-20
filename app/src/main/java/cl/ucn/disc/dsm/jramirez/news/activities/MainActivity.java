@@ -14,6 +14,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -52,13 +53,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 //this is a variable of the switch
     private Switch aSwitch;
+    private Switch bSwitch;
 
-    private static final String BASE_URL="http://192.168.0.14:8000/api/";//here is my base url+
+    private static final String BASE_URL="http://192.168.1.9:8000/api/news/";//here is my base url+
 
     public static final String MyPREFERENCES="nightModePrefs";
     public static final String KEY_ISNIGHTMODE ="isNightMode";
     SharedPreferences sharedpreferences;
-
+    public static final String KEY="key";
     /**
      * The Logger.
      */
@@ -87,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 
         aSwitch = findViewById(R.id.switchl);
+        bSwitch = (Switch) findViewById(R.id.switch2);
 
         checkNightModeActivated();
 
@@ -124,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         newsAdapter.clear();
 
        //llama a la fun
-        getNews();
+
         // Get the news in the background thread
         AsyncTask.execute(() -> {
 
@@ -237,6 +240,15 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    public void onclick(View view) {
+        if(view.getId()==R.id.switch2){
+            if (bSwitch.isChecked()){
+                getNews();
+            }
+        }
 
     }
 }
