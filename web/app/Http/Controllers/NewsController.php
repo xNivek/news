@@ -140,4 +140,16 @@ class NewsController extends Controller
         $news->delete();
         return redirect()->route('news.index');
     }
+
+    //Search documentar mejor :D
+    public function searcht($title){
+
+        $news = News::where('title','like',"%{$title}%")->get();
+        return response()->json(['title' => $news]);
+    }
+    public function searchc($contenido){
+
+        $news = News::where('contenido','like',"%{$contenido}%")->get();
+        return response()->json(['contenido' => $news]);
+    }
 }
