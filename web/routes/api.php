@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+route::get('/news',[NewsController::class,'apires']);
 //CRUD Routes
 //Route::Resource('news', NewsController::class);
 
@@ -42,3 +43,7 @@ Route::post('/login',[AuthController::class,'login']);
 Route::group(['middleware' => ['auth:sanctum']], function(){
 
 });
+
+Route::get('searcht/{title}',[NewsController::class, 'searcht']);
+
+Route::get('searchc/{contenido}',[NewsController::class, 'searchc']);
