@@ -11,6 +11,9 @@
 package cl.ucn.disc.dsm.jramirez.news.model;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import net.openhft.hashing.LongHashFunction;
 
@@ -23,53 +26,63 @@ import cl.ucn.disc.dsm.jramirez.news.utils.Validation;
  *
  * @author Jean Ramirez-Castillo
  */
+@Entity(tableName ="news_table")
 public final class News {
 
     /**
      * Unique id
      */
-    private final Long id;
+    @PrimaryKey(autoGenerate =  false)
+    public Long id;
 
     /**
      * The Title
      * Restriction: not null, size > 2
      */
+    @ColumnInfo(name = "title")
     private final String title;
 
     /**
      * The Source
      */
+    @ColumnInfo(name = "source")
     private final String source;
 
     /**
      * The Author.
      */
+    @ColumnInfo(name = "author")
     private final String author;
 
     /**
      * The URL.
      */
+    @ColumnInfo(name = "url")
     private final String url;
 
     /**
      * The URL of image.
      */
+    @ColumnInfo(name = "urlImage")
     private final String urlImage;
 
     /**
      * The Description.
      */
+    @ColumnInfo(name = "description")
     private final String description;
 
     /**
      * The Content.
      */
+    @ColumnInfo(name = "content")
     private final String content;
 
     /**
      * The Date of publish
      */
-    private final ZonedDateTime publishedAt;
+    @ColumnInfo(name = "publishedAt")
+    public ZonedDateTime publishedAt;
 
     /**
      * The Constructor.
@@ -121,69 +134,70 @@ public final class News {
      * @return the id.
      */
     public Long getId() {
-        return this.id;
+        return id;
     }
 
     /**
      * @return the title.
      */
     public String getTitle() {
-        return this.title;
+        return title;
     }
 
     /**
      * @return the source.
      */
     public String getSource() {
-        return this.source;
+        return source;
     }
 
     /**
      * @return the author.
      */
     public String getAuthor() {
-        return this.author;
+        return author;
     }
 
     /**
      * @return the url.
      */
     public String getUrl() {
-        return this.url;
+        return url;
     }
 
     /**
      * @return the url of image.
      */
     public String getUrlImage() {
-        return this.urlImage;
+        return urlImage;
     }
 
     /**
      * @return the description.
      */
     public String getDescription() {
-        return this.description;
+        return description;
     }
 
     /**
      * @return the content.
      */
     public String getContent() {
-        return this.content;
+        return content;
     }
 
     /**
      * @return the published at
      */
     public ZonedDateTime getPublishedAt() {
-        return this.publishedAt;
+        return publishedAt;
     }
 
+    /**
     // TODO: Remove after testing
     @NonNull
     @Override
     public String toString() {
         return this.title;
-    }
+    }*/
 }
