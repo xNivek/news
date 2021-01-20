@@ -15,18 +15,18 @@ class NewsController extends Controller
     public function index()
     {
         // SELECT * FROM News
-        $news = News::all();
+        //$news = News::all();
 
         //paginate json
-        //$newsList= News::paginate(2);
-        //return response() ->json( $newsList,200);
+        $newsList= News::paginate(2);
+        return response() ->json( $newsList,200);
 
 
-        return response([
+        /**return response([
             'message' => 'Retrieve Successfully',
-            'news' => $news
+            'news' => $newsS
         ], 200);
-
+         */
     }
 
     public function noticias()
@@ -139,17 +139,5 @@ class NewsController extends Controller
         $news = News::findOrFail($id);
         $news->delete();
         return redirect()->route('news.index');
-    }
-
-    //Search documentar mejor :D
-    public function searcht($title){
-
-        $news = News::where('title','like',"%{$title}%")->get();
-        return response()->json(['title' => $news]);
-    }
-    public function searchc($contenido){
-
-        $news = News::where('contenido','like',"%{$contenido}%")->get();
-        return response()->json(['contenido' => $news]);
     }
 }
