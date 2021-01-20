@@ -29,6 +29,22 @@ class NewsController extends Controller
          */
     }
 
+    public function apires()
+    {
+
+
+        $news = News::all();
+
+        return $news;
+
+
+    }
+
+
+
+
+
+
     public function noticias()
     {
         // SELECT * FROM News
