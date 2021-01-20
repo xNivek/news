@@ -42,3 +42,7 @@ Route::post('/login',[AuthController::class,'login']);
 Route::group(['middleware' => ['auth:sanctum']], function(){
 
 });
+
+Route::get('searcht/{title}',[NewsController::class, 'searcht']);
+
+Route::get('searchc/{contenido}',[NewsController::class, 'searchc']);
