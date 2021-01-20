@@ -18,7 +18,7 @@ import retrofit2.http.GET;
 
 public interface JsonPlaceHoldelderApi {
 
-    @GET("news")
+    @GET("apirres")
     Call<List<News>>getNews();
 
 }

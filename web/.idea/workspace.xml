@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="946d5f97-e22f-490c-a33b-2431b50b5cff" name="Default Changelist" comment="fix(Controller): Validation correction">
+    <list default="true" id="946d5f97-e22f-490c-a33b-2431b50b5cff" name="Default Changelist" comment="build(API): Add Json routes">
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/cl/ucn/disc/dsm/jramirez/news/activities/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/cl/ucn/disc/dsm/jramirez/news/activities/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/cl/ucn/disc/dsm/jramirez/news/model/Interface/JsonPlaceHoldelderApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/cl/ucn/disc/dsm/jramirez/news/model/Interface/JsonPlaceHoldelderApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/xml/network_security_config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/xml/network_security_config.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -258,7 +262,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610595665666</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="build(Controller): add get Json connection">
+      <created>1611182082677</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1611182082677</updated>
+    </task>
+    <task id="LOCAL-00004" summary="build(API): Add Json routes">
+      <created>1611182429661</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1611182429661</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +287,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -279,6 +303,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="chore(News): Update form" />
     <MESSAGE value="fix(Controller): Validation correction" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(Controller): Validation correction" />
+    <MESSAGE value="build(Controller): add get Json connection" />
+    <MESSAGE value="build(API): Add Json routes" />
+    <option name="LAST_COMMIT_MESSAGE" value="build(API): Add Json routes" />
   </component>
 </project>
