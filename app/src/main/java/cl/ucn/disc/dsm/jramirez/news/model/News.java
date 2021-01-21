@@ -193,11 +193,4 @@ public final class News {
         return publishedAt;
     }
 
-    /**
-    // TODO: Remove after testing
-    @NonNull
-    @Override
-    public String toString() {
-        return this.title;
-    }*/
 }
