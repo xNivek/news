@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // The toolbar
-        //FIXME: ver caso
+
        // this.setSupportActionBar(findViewById(R.id.am_t_toolbar));
 
         // The FastAdapter
