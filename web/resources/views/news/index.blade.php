@@ -10,10 +10,16 @@
                     <h4 class="card-title"> Simple Table</h4>
                 </div>
                 <div class="card-body">
+
+                    <!-- add news button -->
                     <a href="/news/create" class="btn btn-sm btn-success">Añadir</a>
                     <div class="table-responsive">
+
+                        <!-- web table-->
                         <table class="table table-striped" id="myTable">
                             <thead class=" text-primary">
+
+                            <!-- label title input -->
                             <tr>
                                 <th>
                                     Título
@@ -43,13 +49,11 @@
                                     Action
                                 </th>
 
-                                <!-- <th class="text-center"> esto es para centrar el texto
-                                    Salary
-                                </th>  -->
                             </tr>
                             </thead>
                             <tbody>
 
+                            <!-- foreach news extract-->
                             @foreach($news as $item)
                                 <tr>
                                     <td>{{$item->title}}</td>
@@ -62,7 +66,8 @@
                                     <td>{{$item->published_at}}</td>
 
                                     <td style="width:210px">
-                                        <a href="" class="btn btn-sm btn-primary">Edit</a>
+
+                                        <!-- Delete button-->
                                         <a href="{{ route('news.destroy', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
                                     </td>
                                 </tr>
@@ -76,6 +81,8 @@
         </div>
 
     </div>
+
+    <!-- pagenate, search and order by date in web -->
     <script>
         $(document).ready(function () {
             var table = $('#myTable').DataTable({

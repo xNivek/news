@@ -52,59 +52,20 @@
             </div>
             <ul class="nav">
                 <li>
+                    <!-- news route reference -->
                     <a href="/news">
                         <i class="tim-icons icon-chart-pie-36"></i>
                         <p>Noticias</p>
                     </a>
                 </li>
                 <li>
+                    <!-- api news route reference -->
                     <a href="/api/news">
                         <i class="tim-icons icon-atom"></i>
                         <p>JSON</p>
                     </a>
                 </li>
-               <!-- <li>
-                    <a href="./map.html">
-                        <i class="tim-icons icon-pin"></i>
-                        <p>Maps</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="./notifications.html">
-                        <i class="tim-icons icon-bell-55"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
-                <li class="active ">
-                    <a href="./user.html">
-                        <i class="tim-icons icon-single-02"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="./tables.html">
-                        <i class="tim-icons icon-puzzle-10"></i>
-                        <p>Table List</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="./typography.html">
-                        <i class="tim-icons icon-align-center"></i>
-                        <p>Typography</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="./rtl.html">
-                        <i class="tim-icons icon-world"></i>
-                        <p>RTL Support</p>
-                    </a>
-                </li>
-                <li class="active-pro">
-                    <a href="./upgrade.html">
-                        <i class="tim-icons icon-spaceship"></i>
-                        <p>Upgrade to PRO</p>
-                    </a>
-                </li>-->
+
             </ul>
         </div>
     </div>
@@ -129,44 +90,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navigation">
                     <ul class="navbar-nav ml-auto">
-                        <!--<li class="search-bar input-group">
-                            <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split" ></i>
-                                <span class="d-lg-none d-md-block">Search</span>
-                            </button>
-                        </li>
-                        <li class="dropdown nav-item">
-                            <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                <div class="notification d-none d-lg-block d-xl-block"></div>
-                                <i class="tim-icons icon-sound-wave"></i>
-                                <p class="d-lg-none">
-                                    Notifications
-                                </p>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
-                                <li class="nav-link"><a href="#" class="nav-item dropdown-item">Mike John responded to your email</a></li>
-                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">You have 5 more tasks</a></li>
-                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Your friend Michael is in town</a></li>
-                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another notification</a></li>
-                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown nav-item">
-                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                <div class="photo">
-                                    <img src="../assets/img/anime3.png" alt="Profile Photo">
-                                </div>
-                                <b class="caret d-none d-lg-block d-xl-block"></b>
-                                <p class="d-lg-none">
-                                    Log out
-                                </p>
-                            </a>
-                            <ul class="dropdown-menu dropdown-navbar">
-                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a></li>
-                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>
-                                <li class="dropdown-divider"></li>
-                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a></li>
-                            </ul>
-                        </li>-->
+
                         <li class="separator d-lg-none"></li>
                         <br />
                         <br />
@@ -262,21 +186,21 @@
         </ul>
     </div>
 </div>
+
 <!--   Core JS Files   -->
-
-
-
-
 <script src="{{ asset('assets/js/popper.min.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/js/perfect-scrollbar.jquery.min.js') }}"></script>
-<!--  Google Maps Plugin    -->
+
 <!-- Place this tag in your head or just before your close body tag. -->
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
 <!-- Chart JS -->
 <script src="{{ asset('assets/js/chartjs.min.js') }}"></script>
+
 <!--  Notifications Plugin    -->
 <script src="{{ asset('assets/js/bootstrap-notify.js') }}"></script>
+
 <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{ asset('assets/js/black-dashboard.min.js?v=1.0.0') }}"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ asset('assets/demo/demo.js') }}"></script>
@@ -296,8 +220,6 @@
             window_width = $(window).width();
 
             fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
-
-
 
             $('.fixed-plugin a').click(function(event) {
                 if ($(this).hasClass('switch-trigger')) {
