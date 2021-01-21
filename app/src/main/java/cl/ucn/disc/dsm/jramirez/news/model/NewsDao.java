@@ -34,12 +34,11 @@ public interface NewsDao {
     void insert(News... news);
 
 
-    /**
     @Delete
     void delete(News news);
 
 
     @Query("DELETE FROM news_table")
     void deleteAll();
-    */
+
 }
