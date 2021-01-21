@@ -12,18 +12,22 @@ package cl.ucn.disc.dsm.jramirez.news.activities;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.mikepenz.fastadapter.FastAdapter;
@@ -35,6 +39,7 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 import cl.ucn.disc.dsm.jramirez.news.R;
+import cl.ucn.disc.dsm.jramirez.news.model.AppDataBase;
 import cl.ucn.disc.dsm.jramirez.news.model.Interface.JsonPlaceHoldelderApi;
 import cl.ucn.disc.dsm.jramirez.news.model.News;
 import cl.ucn.disc.dsm.jramirez.news.services.Contracts;
@@ -126,54 +131,81 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         newsAdapter.clear();
 
-       //llama a la fun
+        // Create local Database
+        AppDataBase dataBase = Room.databaseBuilder(getApplicationContext(), AppDataBase.class,"news_table").build();
 
-        // Get the news in the background thread
-        AsyncTask.execute(() -> {
+        // check internet connection
+        ConnectivityManager connectivityManager=(ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
-            // Using the contracts to get the news
-            Contracts contracts = new ContractsImplNewsApi("12f61cbf1bc6493ba98f729b95339461");
+        if(networkInfo!=null && networkInfo.isConnectedOrConnecting()) {
+            // Get the news in the background thread
+            AsyncTask.execute(() -> {
 
-            // Get the News from NewsApi (internet!)
-            List<News> listNews = contracts.retrieveNews(30);
+                // Using the contracts to get the news
+                Contracts contracts = new ContractsImplNewsApi("12f61cbf1bc6493ba98f729b95339461");
 
-            // Set the adapter!
-            runOnUiThread(() -> {
-                newsAdapter.add(listNews);
+                // Get the News from NewsApi (internet!)
+                List<News> listNews = contracts.retrieveNews(30);
+
+                // Set the adapter!
+                runOnUiThread(() -> {
+                    newsAdapter.add(listNews);
+                });
+
             });
 
-        });
+            // declarate swiper
+            SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.am_swl_refresh);
 
-        // declarate swiper
-        SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.am_swl_refresh);
+            // pull to refresh
+            swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
 
-        // pull to refresh
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
+                    //clear the view
+                    newsAdapter.clear();
+                    // Get the news in the background thread
+                    AsyncTask.execute(() -> {
 
-                //clear the view
-                newsAdapter.clear();
-                // Get the news in the background thread
-                AsyncTask.execute(() -> {
+                        // Using the contracts to get the news
+                        Contracts contracts = new ContractsImplNewsApi("12f61cbf1bc6493ba98f729b95339461");
 
-                    // Using the contracts to get the news
-                    Contracts contracts = new ContractsImplNewsApi("12f61cbf1bc6493ba98f729b95339461");
+                        // Get the News from NewsApi (internet!)
+                        List<News> listNews = contracts.retrieveNews(30);
 
-                    // Get the News from NewsApi (internet!)
-                    List<News> listNews = contracts.retrieveNews(30);
+                        // Set the adapter!
+                        runOnUiThread(() -> {
+                            newsAdapter.add(listNews);
+                        });
 
-                    // Set the adapter!
-                    runOnUiThread(() -> {
-                        newsAdapter.add(listNews);
                     });
+                    fastAdapter.notifyAdapterDataSetChanged();
+                    swipeRefreshLayout.setRefreshing(false);
+                }
+            });
+        }else{
+            // Display message no connection
+            Toast.makeText(getApplicationContext(),"Sin conexion", Toast.LENGTH_LONG).show();
 
-                });
-                fastAdapter.notifyAdapterDataSetChanged();
-                swipeRefreshLayout.setRefreshing(false);
-            }
-        });
+            // Display last news from local storage
+            Thread thread = new Thread(() -> newsAdapter.add(dataBase.newsDao().getAll()));
+            thread.start();
 
+            // The swipeRefresh for "pull to refresh"
+            SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.am_swl_refresh);
+            swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+
+                    // Display "no connection" in screen
+                    Toast.makeText(getApplicationContext(),"Sin conexion", Toast.LENGTH_LONG).show();
+
+                    // Set refresh to false
+                    swipeRefreshLayout.setRefreshing(false);
+                }
+            });
+        }
 
     }
 
