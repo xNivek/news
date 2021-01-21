@@ -155,10 +155,8 @@ public class MainActivity extends AppCompatActivity {
 
             });
 
-            // declarate swiper
+            //The swiper and find id "am_swl_refresh"
             SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.am_swl_refresh);
-
-            // pull to refresh
             swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                 @Override
                 public void onRefresh() {
@@ -185,10 +183,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }else{
-            // Display message no connection
+            // show the message
             Toast.makeText(getApplicationContext(),"Sin conexion", Toast.LENGTH_LONG).show();
 
-            // Display last news from local storage
             Thread thread = new Thread(() -> newsAdapter.add(dataBase.newsDao().getAll()));
             thread.start();
 
@@ -198,10 +195,8 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onRefresh() {
 
-                    // Display "no connection" in screen
                     Toast.makeText(getApplicationContext(),"Sin conexion", Toast.LENGTH_LONG).show();
 
-                    // Set refresh to false
                     swipeRefreshLayout.setRefreshing(false);
                 }
             });

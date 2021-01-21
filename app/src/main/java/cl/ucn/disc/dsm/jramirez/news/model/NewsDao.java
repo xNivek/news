@@ -17,25 +17,29 @@ import androidx.room.Query;
 
 import java.util.List;
 
-//TODO: comentar
+/**
+ *  The News dao databa dase.
+ *
+ *  @author Jean Ramirez-Castillo.
+ */
 @Dao
 public interface NewsDao {
 
-
+    // Select all elements of the news table
     @Query("SELECT * FROM news_table ORDER BY publishedAt DESC ")
     List<News> getAll();
 
-
+    // insert news in news table
     @Insert
     void insert(News... news);
 
+
     /**
-     TODO:Eliminar
     @Delete
     void delete(News news);
 
 
     @Query("DELETE FROM news_table")
     void deleteAll();
-    **/
+    */
 }
