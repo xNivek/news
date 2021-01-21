@@ -113,8 +113,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         // The toolbar
 
        // this.setSupportActionBar(findViewById(R.id.am_t_toolbar));
@@ -258,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<News>> call, Response<List<News>> response) {
                 if(!response.isSuccessful()){
-                    mJsonTxtView.setText("codigo"+ response.code());
+                    mJsonTxtView.setText("Servidor no encontrado");
                     return;
                 }
 

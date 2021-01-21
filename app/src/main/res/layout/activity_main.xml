@@ -8,18 +8,14 @@
     android:orientation="vertical"
     tools:context=".activities.MainActivity">
 
-
-
-
-
     <Switch
         android:id="@+id/switchl"
         android:layout_width="wrap_content"
         android:layout_height="14dp"
-        android:layout_marginStart="350dp"
+        android:layout_marginStart="315dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
-        android:text=""
+        android:text="TEMA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,10 +24,10 @@
         android:id="@+id/switch2"
         android:layout_width="wrap_content"
         android:layout_height="14dp"
-        android:layout_marginStart="350dp"
+        android:layout_marginStart="300dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
-        android:text=""
+        android:text="API WEB"
         android:onClick="onclick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.076"
@@ -43,48 +39,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
-
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/jsonText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-
-                />
-
-
-        </androidx.core.widget.NestedScrollView>
-
-
-
-<!--
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/am_t_toolbar"
-            style="@style/Theme.News.Toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:elevation="4dp"
-            android:minHeight="?attr/actionBarSize"
-            app:contentInsetStart="0dp"
-            app:contentInsetStartWithNavigation="0dp"
-            app:navigationIcon="@drawable/ic_launcher_foreground"
-            app:subtitle="@string/subtitle"
-            app:title="@string/title"
-
-
-        />
--->
-
-
-
     </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/jsonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            />
+    </androidx.core.widget.NestedScrollView>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/am_swl_refresh"
@@ -92,16 +62,12 @@
         android:layout_height="match_parent"
         tools:ignore = "MissingClass">
 
-
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/am_rv_news"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"/>
 
-
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
 
 </LinearLayout>
