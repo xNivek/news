@@ -14,21 +14,21 @@ use App\Http\Controllers\NewsController;
 |
 */
 
+//Default route
 Route::get('/', function () {
     return view('welcome');
 });
 
-
-
-
-
+//Route to principal index
 Route::get("/news",[NewsController::class, "noticias"])->name('news.index');
-//Route::get("/news/create",[NewsController::class, "create"]);
-//Route::get('/news/create',[NewsController::class, "create"] );
+
+//Route to create
 Route::get('/news/create', function () {
     return view('news.create');
 });
 
-
+//Route to store, save news api
 Route::post('/news', [NewsController::class, 'store'])->name('news.store');
+
+//Route to destroy, delete news
 Route::get('/news/destroy/{id}', [NewsController::class, 'destroy'])->name('news.destroy');;

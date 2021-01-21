@@ -14,44 +14,34 @@ class NewsController extends Controller
      */
     public function index()
     {
-        // SELECT * FROM News
-        //$news = News::all();
-
         //paginate json
-        $newsList= News::paginate(2);
+        $newsList= News::paginate(10);
         return response() ->json( $newsList,200);
 
-
-        /**return response([
-            'message' => 'Retrieve Successfully',
-            'news' => $newsS
-        ], 200);
-         */
     }
 
+    /**
+     * Display a listing of the clean resource.
+     *
+     * @return mixed
+     */
     public function apires()
     {
-
-
         $news = News::all();
-
         return $news;
-
 
     }
 
-
-
-
-
-
+    /**
+     * Index app Web
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function noticias()
     {
         // SELECT * FROM News
         $news = News::all();
-
         return view('news.index', compact('news'));
-
 
     }
 
@@ -63,6 +53,7 @@ class NewsController extends Controller
     public function create()
     {
         return view('news.create');
+
     }
 
     /**
@@ -73,8 +64,6 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $validated = $request->validate([
             'title' => 'required|max:255',
             'author' => 'required|max:50',
@@ -86,10 +75,7 @@ class NewsController extends Controller
             'published_at' => 'required|max:255',
         ]);
 
-
-
         News::create($request->all());
-
         return redirect()->route('news.index');
 
     }
@@ -126,22 +112,7 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $news = News::findOrFail($id);
-
-        /**
-        $news->title = $request->title;
-        $news->author = $request->author;
-        $news->source = $request->source;
-        $news->url = $request->url;
-        $news->url_image = $request->url_image;
-        $news->description = $request->description;
-        $news->contenido = $request->contenido;
-        $news->published_at = $request->published_at;
-
-        if($news->save()){
-            return new NewsResource();
-        }
-        */
+       //
     }
 
     /**
@@ -155,17 +126,32 @@ class NewsController extends Controller
         $news = News::findOrFail($id);
         $news->delete();
         return redirect()->route('news.index');
+
     }
 
-    //Search documentar mejor :D
-    public function searcht($title){
-
+    /**
+     * Search for title
+     *
+     * @param $title
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function searcht($title)
+    {
         $news = News::where('title','like',"%{$title}%")->get();
         return response()->json(['title' => $news]);
-    }
-    public function searchc($contenido){
 
+    }
+
+    /**
+     * Search for content
+     *
+     * @param $contenido
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function searchc($contenido)
+    {
         $news = News::where('contenido','like',"%{$contenido}%")->get();
         return response()->json(['contenido' => $news]);
+
     }
 }

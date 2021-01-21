@@ -16,34 +16,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Default route
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//Route retro fit
 route::get('/news/apirres/',[NewsController::class,'apires']);
+
 //CRUD Routes
-//Route::Resource('news', NewsController::class);
+Route::Resource('news', NewsController::class);
 
-Route::get('/news',[NewsController::class,'index']);
-
-Route::post('/news',[NewsController::class,'store']);
-
-Route::get('/news/{id}',[NewsController::class,'show']);
-
-//Route::post('/news',[NewsController::class,'create']);
-
-Route::put('/news/{id}',[NewsController::class,'update']);
-
-Route::put('/news/{id}',[NewsController::class,'destroy']);
-
-//Autentication Route
-Route::post('/register',[AuthController::class,'register']);
-
-Route::post('/login',[AuthController::class,'login']);
-
-Route::group(['middleware' => ['auth:sanctum']], function(){
-
-});
-
+//Search Route for title
 Route::get('searcht/{title}',[NewsController::class, 'searcht']);
 
+//Search Rout for content
 Route::get('searchc/{contenido}',[NewsController::class, 'searchc']);

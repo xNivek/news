@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="946d5f97-e22f-490c-a33b-2431b50b5cff" name="Default Changelist" comment="build(API): Add Json routes">
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/cl/ucn/disc/dsm/jramirez/news/activities/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/cl/ucn/disc/dsm/jramirez/news/activities/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/cl/ucn/disc/dsm/jramirez/news/model/Interface/JsonPlaceHoldelderApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/cl/ucn/disc/dsm/jramirez/news/model/Interface/JsonPlaceHoldelderApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/xml/network_security_config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/xml/network_security_config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13-01-2021_21_48_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13-01-2021_21_48__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13-01-2021_22_39_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13-01-2021_22_39__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,6 +250,7 @@
       <workItem from="1611087523935" duration="2013000" />
       <workItem from="1611089695321" duration="3375000" />
       <workItem from="1611170598867" duration="2036000" />
+      <workItem from="1611197091465" duration="4484000" />
     </task>
     <task id="LOCAL-00001" summary="chore(News): Update form">
       <created>1610595595715</created>
