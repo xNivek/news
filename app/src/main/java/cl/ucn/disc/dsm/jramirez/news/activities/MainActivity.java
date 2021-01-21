@@ -56,12 +56,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * @author  Jean Ramirez-Castillo.
  */
 public class MainActivity extends AppCompatActivity {
-//this is a variable of the switch
+    //this is a variable of the switch Nitght mode/api mode
     private Switch aSwitch;
     private Switch bSwitch;
 
+    //This URL to conect retrofit
     private static final String BASE_URL="http://192.168.1.9:8000/api/news/";//here is my base url+
 
+    //Varibles to save state of the mode theme
     public static final String MyPREFERENCES="nightModePrefs";
     public static final String KEY_ISNIGHTMODE ="isNightMode";
     SharedPreferences sharedpreferences;
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private static final Logger log = LoggerFactory.getLogger(MainActivity.class);
 
+    //Json View
     private TextView mJsonTxtView;
 
     /**
@@ -82,22 +85,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //this Show The tooldbar logo and name
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
+        //find Json text
         mJsonTxtView=findViewById(R.id.jsonText);
 
 
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-
+        //find Switch view
         aSwitch = findViewById(R.id.switchl);
         bSwitch = (Switch) findViewById(R.id.switch2);
 
         checkNightModeActivated();
 
+        //set theme
         aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -225,13 +231,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    /**
+     * Save night mode state
+     *
+     * @param nightMode
+     */
     private void saveNightModeState(boolean nightMode) {
         SharedPreferences.Editor editor = sharedpreferences.edit();
         editor.putBoolean(KEY_ISNIGHTMODE,nightMode);
         editor.apply();
     }
 
+    /**
+     * Check night mode Activated
+     */
     public void checkNightModeActivated(){
         if(sharedpreferences.getBoolean(KEY_ISNIGHTMODE,false)){
             aSwitch.setChecked(true);
@@ -243,6 +256,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * This get the Json news from the api web
+     */
     private void getNews(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -273,11 +289,7 @@ public class MainActivity extends AppCompatActivity {
                     content+="contenido" + news.getContent()+"\n";
                     content+="published_at" + news.getPublishedAt()+"\n";
                     mJsonTxtView.append(content);
-
-
                 }
-
-
             }
 
             @Override
@@ -290,6 +302,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * This change the NewsApi -> to Laravel APi
+     *
+     * @param view
+     */
     public void onclick(View view) {
         if(view.getId()==R.id.switch2){
             if (bSwitch.isChecked()){
