@@ -139,6 +139,8 @@ public class MainActivity extends AppCompatActivity {
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
         if(networkInfo!=null && networkInfo.isConnectedOrConnecting()) {
+            // show the message
+            Toast.makeText(getApplicationContext(),"Conectado", Toast.LENGTH_LONG).show();
             // Get the news in the background thread
             AsyncTask.execute(() -> {
 
@@ -147,6 +149,16 @@ public class MainActivity extends AppCompatActivity {
 
                 // Get the News from NewsApi (internet!)
                 List<News> listNews = contracts.retrieveNews(30);
+
+                // Delete all Data Base in device
+                dataBase.newsDao().deleteAll();
+
+                // inset date in the news_table
+                for(int i = 0; i < listNews.size()-1; i++){
+                    if(listNews.get(i) != null){
+                        dataBase.newsDao().insert(listNews.get(i));
+                    }
+                }
 
                 // Set the adapter!
                 runOnUiThread(() -> {
@@ -171,6 +183,16 @@ public class MainActivity extends AppCompatActivity {
 
                         // Get the News from NewsApi (internet!)
                         List<News> listNews = contracts.retrieveNews(30);
+
+                        // Delete all Data Base in device
+                        dataBase.newsDao().deleteAll();
+
+                        // insert date in news_table
+                        for(int i = 0; i < listNews.size()-1; i++){
+                            if(listNews.get(i) != null){
+                                dataBase.newsDao().insert(listNews.get(i));
+                            }
+                        }
 
                         // Set the adapter!
                         runOnUiThread(() -> {
