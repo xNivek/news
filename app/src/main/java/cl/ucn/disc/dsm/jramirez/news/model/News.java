@@ -107,7 +107,7 @@ public final class News {
         this.source = source;
 
         // Validation author
-        Validation.minSize(author, 3, "author");
+        Validation.minSize(author, 2, "author");
         this.author = author;
 
         // Hashing unique!
